@@ -1,16 +1,18 @@
 /* eslint-disable @next/next/no-img-element */
-import Image from "next/image";
 import { useEffect, useState } from "react";
+import styles from "./ListPokemons.module.scss";
 
 const ListPokemon = ({ pokemon }) => {
   const [pokemonData, setPokemonData] = useState({});
 
-  useEffect(() =>
-    (async () => {
-      const response = await fetch(pokemon.url);
-      const body = await response.json();
-      setPokemonData(body);
-    })()
+  useEffect(
+    () =>
+      (async () => {
+        const response = await fetch(pokemon.url);
+        const body = await response.json();
+        setPokemonData(body);
+      })(),
+    [pokemon.url]
   );
 
   let types = [];
@@ -22,19 +24,20 @@ const ListPokemon = ({ pokemon }) => {
   }
 
   return (
-    <li>
-      <h2>{pokemon.name}</h2>
+    <li className={styles.container}>
+      <div className={styles.info}>
+        <h2>{pokemon.name}</h2>
+        <h3>Types:</h3>
+        {types}
+      </div>
+      <span className={styles.separator}></span>
       {pokemonData.name && (
-        <>
-          <h3>Types:</h3>
-          {types}
-          <img
-            src={pokemonData.sprites.other["official-artwork"].front_default}
-            alt={`${pokemonData.name} picture`}
-            width="100"
-            height="100"
-          />
-        </>
+        <img
+          src={pokemonData.sprites.other["official-artwork"].front_default}
+          alt={`${pokemonData.name} picture`}
+          width="120"
+          height="120"
+        />
       )}
     </li>
   );
