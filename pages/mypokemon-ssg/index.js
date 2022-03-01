@@ -14,7 +14,9 @@ const MyPokemonSSG = ({ pokemon }) => {
 };
 
 export const getStaticProps = async () => {
-  const response = await fetch("http://localhost:4000/pokemon");
+  const response = await fetch(
+    "https://w8-poke-api.herokuapp.com/pokemon/pokemon"
+  );
 
   const pokemon = await response.json();
 
