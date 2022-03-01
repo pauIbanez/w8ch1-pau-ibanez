@@ -11,13 +11,13 @@ const Navigate = () => {
           <Link href={"/pokemon"}> Pokemon CSR</Link>
         </li>
         <li>
-          <Link href={"/mypokemon-ssr"}>My pokemon SSR</Link>
+          <Link href={"/mypokemon/ssr"}>My pokemon SSR</Link>
         </li>
         <li>
-          <Link href={"/mypokemon-ssg"}>My pokemon SSG</Link>
+          <Link href={"/mypokemon/ssg"}>My pokemon SSG</Link>
         </li>
         <li>
-          <Link href={"/mypokemon-isr"}>My pokemon ISR</Link>
+          <Link href={"/mypokemon/isr"}>My pokemon ISR</Link>
         </li>
       </ul>
     </nav>

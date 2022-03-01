@@ -1,16 +1,25 @@
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 import styles from "../ListPokemon/ListPokemons.module.scss";
 
 const MyListPokemon = ({ pokemon }) => {
-  // const types = pokemon.types.map((type) => <p key={type}>{type}</p>);
+  const router = useRouter();
+
+  if (!pokemon) {
+    return <></>;
+  }
+  const types = pokemon.types.map((type) => <p key={type}>{type}</p>);
+
+  const gotoDetails = () => {
+    router.push(`/mypokemon/${pokemon.name}`);
+  };
 
   return (
-    <li className={styles.container}>
+    <li className={styles.container} onClick={gotoDetails}>
       <div className={styles.info}>
         <h2>{pokemon.name}</h2>
         <h3>Types:</h3>
-        {/* {types} */}
+        {types}
       </div>
       <span className={styles.separator}></span>
       {pokemon.name && (
