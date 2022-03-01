@@ -10,6 +10,9 @@ const Navigate = () => {
         <li>
           <Link href={"/pokemon"}> Pokemon CSR</Link>
         </li>
+        <li>
+          <Link href={"/mypokemon-ssr"}> My pokemon SSR</Link>
+        </li>
       </ul>
     </nav>
   );

@@ -1,8 +1,9 @@
 import ListPokemon from "../../components/ListPokemon/ListPokemon";
+import MyListPokemon from "../../components/MyListPokemon/MyListPokemon";
 
 const MyPokemonSSR = ({ pokemon }) => {
   const pokemonsToRender = pokemon.map((poke) => (
-    <ListPokemon key={poke.name} pokemon={poke} />
+    <MyListPokemon key={poke.name} pokemon={poke} />
   ));
 
   return (
@@ -16,7 +17,7 @@ const MyPokemonSSR = ({ pokemon }) => {
 export const getServerSideProps = async () => {
   const response = await fetch("http://localhost:4000/pokemon");
 
-  const { results: pokemon } = await response.json();
+  const pokemon = await response.json();
 
   return {
     props: {
