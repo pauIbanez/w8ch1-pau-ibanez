@@ -4,13 +4,13 @@ import styles from "./ListPokemons.module.scss";
 
 const ListPokemon = ({ pokemon }) => {
   const [pokemonData, setPokemonData] = useState({});
-
   useEffect(
     () =>
       (async () => {
         const response = await fetch(pokemon.url);
         const body = await response.json();
         setPokemonData(body);
+        console.log(body.sprites.other["official-artwork"].front_default);
       })(),
     [pokemon.url]
   );
