@@ -10,7 +10,6 @@ const ListPokemon = ({ pokemon }) => {
         const response = await fetch(pokemon.url);
         const body = await response.json();
         setPokemonData(body);
-        console.log(body.sprites.other["official-artwork"].front_default);
       })(),
     [pokemon.url]
   );
