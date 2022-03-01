@@ -1,4 +1,4 @@
-/* eslint-disable @next/next/no-img-element */
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import styles from "./ListPokemons.module.scss";
 
@@ -32,7 +32,7 @@ const ListPokemon = ({ pokemon }) => {
       </div>
       <span className={styles.separator}></span>
       {pokemonData.name && (
-        <img
+        <Image
           src={pokemonData.sprites.other["official-artwork"].front_default}
           alt={`${pokemonData.name} picture`}
           width="120"
