@@ -14,9 +14,7 @@ const MyPokemonSSR = ({ pokemon }) => {
 };
 
 export const getServerSideProps = async () => {
-  const response = await fetch(
-    "https://w8-poke-api.herokuapp.com/pokemon/pokemon"
-  );
+  const response = await fetch("https://w8-poke-api.herokuapp.com/pokemon");
 
   const pokemon = await response.json();
 
