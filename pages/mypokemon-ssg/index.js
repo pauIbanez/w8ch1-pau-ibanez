@@ -1,19 +1,19 @@
 import MyListPokemon from "../../components/MyListPokemon/MyListPokemon";
 
-const MyPokemonSSR = ({ pokemon }) => {
+const MyPokemonSSG = ({ pokemon }) => {
   const pokemonsToRender = pokemon.map((poke) => (
     <MyListPokemon key={poke.name} pokemon={poke} />
   ));
 
   return (
     <>
-      <h1>Listado mis pokemon SSR</h1>
+      <h1>Listado mis pokemon SSG</h1>
       <ul>{pokemonsToRender}</ul>
     </>
   );
 };
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
   const response = await fetch("http://localhost:4000/pokemon");
 
   const pokemon = await response.json();
@@ -25,4 +25,4 @@ export const getServerSideProps = async () => {
   };
 };
 
-export default MyPokemonSSR;
+export default MyPokemonSSG;
