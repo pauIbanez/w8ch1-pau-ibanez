@@ -22,7 +22,7 @@ export const getStaticProps = async () => {
     props: {
       pokemon,
     },
-    revalidation: 20,
+    revalidate: 20,
   };
 };
 
